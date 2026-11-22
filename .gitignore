@@ -1,0 +1,19 @@
+# Kişisel veriler ve kullanıcıya özel ayarlar repoya girmez
+veri/ayarlar.json
+veri/profil.md
+veri/snapshots/*
+!veri/snapshots/.gitkeep
+veri/kaynak/*
+!veri/kaynak/.gitkeep
+raporlar/*
+!raporlar/.gitkeep
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db

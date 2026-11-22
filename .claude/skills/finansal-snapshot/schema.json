@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finansal Snapshot",
+  "type": "object",
+  "required": ["tarih", "varliklar", "borclar", "aylik_nakit_akisi"],
+  "properties": {
+    "tarih": {"type": "string", "format": "date"},
+    "varliklar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ad", "tur", "tutar", "para_birimi", "likit", "kaynak"],
+        "properties": {
+          "ad": {"type": "string"},
+          "tur": {"enum": ["nakit", "vadesiz", "vadeli_mevduat", "para_piyasasi_fonu", "doviz", "altin", "hisse_fon", "bes", "gayrimenkul", "arac", "alacak", "diger"]},
+          "tutar": {"type": "number"},
+          "para_birimi": {"enum": ["TRY", "USD", "EUR", "XAU_GRAM"]},
+          "likit": {"type": "boolean"},
+          "yillik_getiri_orani": {"type": ["number", "null"], "description": "% olarak, biliniyorsa"},
+          "vade_tarihi": {"type": ["string", "null"]},
+          "kaynak": {"type": "string"}
+        }
+      }
+    },
+    "borclar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ad", "tur", "kalan_anapara", "para_birimi", "aylik_faiz_orani", "aylik_odeme", "kaynak"],
+        "properties": {
+          "ad": {"type": "string"},
+          "tur": {"enum": ["kredi_karti", "kmh", "ihtiyac_kredisi", "konut_kredisi", "tasit_kredisi", "sahis", "diger"]},
+          "kalan_anapara": {"type": "number"},
+          "para_birimi": {"enum": ["TRY", "USD", "EUR", "XAU_GRAM"]},
+          "aylik_faiz_orani": {"type": ["number", "null"], "description": "% olarak, aylık"},
+          "aylik_odeme": {"type": "number", "description": "Taksit veya asgari ödeme"},
+          "kalan_taksit": {"type": ["integer", "null"]},
+          "son_odeme_gunu": {"type": ["integer", "null"]},
+          "kaynak": {"type": "string"}
+        }
+      }
+    },
+    "aylik_nakit_akisi": {
+      "type": "object",
+      "required": ["gelirler", "giderler"],
+      "properties": {
+        "gelirler": {"type": "array", "items": {"type": "object", "required": ["ad", "tutar"], "properties": {"ad": {"type": "string"}, "tutar": {"type": "number"}}}},
+        "giderler": {"type": "array", "description": "Borç ödemeleri HARİÇ", "items": {"type": "object", "required": ["ad", "tutar"], "properties": {"ad": {"type": "string"}, "tutar": {"type": "number"}, "sabit": {"type": "boolean"}}}}
+      }
+    },
+    "uyarilar": {"type": "array", "items": {"type": "string"}},
+    "eksikler": {"type": "array", "items": {"type": "string"}}
+  }
+}

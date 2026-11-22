@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch",
+      "Bash(python3 kurulum.py:*)",
+      "Bash(python3 .claude/skills/*/scripts/*.py:*)",
+      "Write(veri/snapshots/**)",
+      "Write(veri/profil.md)",
+      "Write(raporlar/**)"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)"
+    ]
+  }
+}

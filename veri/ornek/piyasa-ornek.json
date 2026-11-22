@@ -1,0 +1,13 @@
+{
+  "tarih": "2026-11-22",
+  "_not": "ÖRNEK DEĞERLER — gerçek değil. Gerçek dosyayı piyasa-arastirmaci ajanı üretir.",
+  "degerler": {
+    "tcmb_politika_faizi": {"deger": 38.0, "birim": "yillik_%", "kaynak": "ornek", "kaynak_tarihi": "2026-11-22"},
+    "tufe_yillik": {"deger": 30.0, "birim": "yillik_%", "kaynak": "ornek", "kaynak_tarihi": "2026-11-22"},
+    "ortalama_mevduat_faizi_32_gun": {"deger": 40.0, "birim": "yillik_%", "kaynak": "ornek", "kaynak_tarihi": "2026-11-22"},
+    "kredi_karti_azami_akdi_faiz": {"deger": 3.75, "birim": "aylik_%", "kaynak": "ornek", "kaynak_tarihi": "2026-11-22"},
+    "usd_try": {"deger": 42.0, "birim": "TRY", "kaynak": "ornek", "kaynak_tarihi": "2026-11-22"},
+    "eur_try": {"deger": 48.0, "birim": "TRY", "kaynak": "ornek", "kaynak_tarihi": "2026-11-22"},
+    "gram_altin_try": {"deger": 5500.0, "birim": "TRY", "kaynak": "ornek", "kaynak_tarihi": "2026-11-22"}
+  }
+}

@@ -1,0 +1,38 @@
+name: Testler
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Birim testleri
+        run: python -m unittest discover tests -v
+      - name: Örnek snapshot doğrulaması
+        run: python .claude/skills/finansal-snapshot/scripts/validate.py veri/ornek/snapshot-ornek.json
+      - name: Kişisel veri sızıntısı kontrolü
+        shell: bash
+        run: |
+          for f in veri/ayarlar.json veri/profil.md .claude/settings.local.json; do
+            if git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+              echo "::error::$f repoya eklenmiş olmamalı"; exit 1
+            fi
+          done
+          if git ls-files veri/snapshots raporlar veri/kaynak | grep -v '.gitkeep$'; then
+            echo "::error::Kişisel veri klasörlerinde dosya var"; exit 1
+          fi

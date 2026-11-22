@@ -1,0 +1,24 @@
+{
+  "tarih": "2026-11-22",
+  "varliklar": [
+    {"ad": "Vadesiz hesap", "tur": "vadesiz", "tutar": 45000, "para_birimi": "TRY", "likit": true, "kaynak": "kullanıcı beyanı"},
+    {"ad": "32 gün vadeli", "tur": "vadeli_mevduat", "tutar": 150000, "para_birimi": "TRY", "likit": true, "yillik_getiri_orani": 40.0, "vade_tarihi": "2026-12-15", "kaynak": "hesaplar.xlsx"},
+    {"ad": "Dolar hesabı", "tur": "doviz", "tutar": 2000, "para_birimi": "USD", "likit": true, "kaynak": "hesaplar.xlsx"},
+    {"ad": "Gram altın", "tur": "altin", "tutar": 50, "para_birimi": "XAU_GRAM", "likit": false, "kaynak": "notlar.md"}
+  ],
+  "borclar": [
+    {"ad": "Kredi kartı A", "tur": "kredi_karti", "kalan_anapara": 85000, "para_birimi": "TRY", "aylik_faiz_orani": 3.75, "aylik_odeme": 17000, "kalan_taksit": null, "son_odeme_gunu": 5, "kaynak": "ekstre-kasim.pdf"},
+    {"ad": "Kredi kartı B", "tur": "kredi_karti", "kalan_anapara": 22000, "para_birimi": "TRY", "aylik_faiz_orani": 3.75, "aylik_odeme": 4400, "kalan_taksit": null, "son_odeme_gunu": 12, "kaynak": "ekstre-b-kasim.pdf"},
+    {"ad": "İhtiyaç kredisi", "tur": "ihtiyac_kredisi", "kalan_anapara": 180000, "para_birimi": "TRY", "aylik_faiz_orani": 3.2, "aylik_odeme": 14500, "kalan_taksit": 18, "son_odeme_gunu": 20, "kaynak": "kredi.pdf"}
+  ],
+  "aylik_nakit_akisi": {
+    "gelirler": [{"ad": "Maaş", "tutar": 120000}],
+    "giderler": [
+      {"ad": "Kira", "tutar": 30000, "sabit": true},
+      {"ad": "Faturalar", "tutar": 6000, "sabit": true},
+      {"ad": "Market ve yaşam", "tutar": 25000, "sabit": false}
+    ]
+  },
+  "uyarilar": ["Altın miktarı notlar.md'den, tarih belirtilmemiş"],
+  "eksikler": []
+}
